@@ -1172,3 +1172,122 @@ h1, h2, h3,
 .project-visual.project-visual-fallback .project-visual-image {
   display: none;
 }
+
+/* Pages de détail des jeux — actions et états de disponibilité */
+.game-action-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.game-action-disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px dashed var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: not-allowed;
+}
+.game-build-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.game-build-status .status-dot {
+  flex: 0 0 auto;
+  background: var(--orange);
+  box-shadow: 0 0 10px #8da3b044;
+}
+.visual-sorcerers-ring::before {
+  background:
+    radial-gradient(ellipse at 50% 45%, #8e6ab988 0%, transparent 43%),
+    linear-gradient(135deg, #29213b, #10131a 75%);
+}
+/* Le lancement navigateur est réservé aux écrans non mobiles. */
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+  .browser-play-button {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .game-action-list {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .game-action-list .button,
+  .game-action-disabled {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+/* Page de lancement locale des jeux : zone large, centrée dans le flux normal. */
+.game-player-page {
+  width: min(1600px, calc(100% - 32px));
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+}
+.game-player-intro { margin-bottom: 20px; }
+.game-frame-wrap {
+  width: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #080b12;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .3);
+}
+.game-frame {
+  display: block;
+  width: 100%;
+  height: clamp(560px, 72vh, 900px);
+  min-height: 420px;
+  border: 0;
+  background: #080b12;
+}
+.game-player-placeholder {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: clamp(24px, 5vw, 56px);
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: radial-gradient(ellipse at 50% 35%, rgba(65, 199, 218, .09), transparent 55%), #0d111a;
+  color: var(--muted);
+}
+.game-player-placeholder h2 { margin: 0; color: var(--text); font-size: clamp(16px, 2vw, 24px); line-height: 1.5; }
+.game-player-placeholder p { max-width: 620px; margin: 0; line-height: 1.8; }
+.game-player-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 20px; }
+@media (max-width: 900px) {
+  .game-player-page { width: calc(100% - 32px); }
+  .game-frame-wrap { min-height: 360px; }
+  .game-frame { height: clamp(420px, 68vh, 760px); min-height: 360px; }
+  .game-player-placeholder { min-height: 360px; }
+}
+@media (max-width: 620px) {
+  .game-player-page { width: calc(100% - 20px); }
+  .game-player-intro { margin-bottom: 16px; }
+  .game-frame-wrap { min-height: 300px; border-radius: 8px; }
+  .game-frame { height: clamp(300px, 68svh, 620px); min-height: 300px; }
+  .game-player-placeholder { min-height: 300px; padding: 24px 16px; }
+  .game-player-footer { align-items: stretch; flex-direction: column; }
+  .game-player-footer .button { justify-content: center; }
+}

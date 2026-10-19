@@ -40,6 +40,7 @@ type Project = {
   windowsUrl?: string;
   macosUrl?: string;
   buildStatus?: string;
+  itchUrl?: string;
 };
 
 const projects: Project[] = [
@@ -67,6 +68,7 @@ const projects: Project[] = [
     number: "02",
     slug: "alien-puzzle",
     title: "Alien Puzzle",
+    itchUrl: "https://jimmy-lambourion.itch.io/alien-puzzle",
     category: "Jeu vidéo",
     year: "2020",
     description:
@@ -87,6 +89,7 @@ const projects: Project[] = [
     number: "03",
     slug: "planet-prospector",
     title: "Planet Prospector",
+    itchUrl: "https://thierry-lam.itch.io/planet-prospector",
     category: "Jeu vidéo",
     year: "2018",
     description:
@@ -126,6 +129,7 @@ const projects: Project[] = [
     number: "05",
     slug: "sorcerers-ring",
     title: "Sorcerer's Ring",
+    itchUrl: "https://thierry-lam.itch.io/sorcerers-ring",
     category: "Jeu vidéo",
     year: "À préciser",
     description:
@@ -706,6 +710,11 @@ function App() {
                 <a className="button button-primary browser-play-button" href={`/Portfolio/jouer/${currentProject.slug}`}>
                   <Gamepad2 size={17} /> Jouer dans le navigateur <ArrowUpRight size={13} />
                 </a>
+                {currentProject.itchUrl && (
+                  <a className="button button-outline" href={currentProject.itchUrl} target="_blank" rel="noopener noreferrer">
+                    Voir sur itch.io <ExternalLink size={13} />
+                  </a>
+                )}
                 {currentProject.windowsUrl ? (
                   <a className="button button-outline" href={currentProject.windowsUrl} download>
                     Télécharger pour Windows <ArrowDownRight size={16} />

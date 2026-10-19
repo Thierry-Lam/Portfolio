@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirection — Portfolio de Thierry Lam</title>
+  </head>
+  <body>
+    <p>Redirection vers le portfolio…</p>
+    <script>
+      // GitHub Pages sert cette page pour les routes qui ne correspondent pas
+      // à un fichier. On transmet l’URL demandée à l’application React.
+      const requestedUrl =
+        window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(
+        "/Portfolio/?p=" + encodeURIComponent(requestedUrl)
+      );
+    </script>
+  </body>
+</html>

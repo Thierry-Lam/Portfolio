@@ -36,8 +36,7 @@ type Project = {
   visualLabel: string;
   role: string;
   details: string[];
-  itchUrl?: string;
-  browserUrl?: string;
+  browserBuildPath?: string;
   windowsUrl?: string;
   macosUrl?: string;
   buildStatus?: string;
@@ -82,8 +81,7 @@ const projects: Project[] = [
       "Utilisation de Unity et C#.",
       "Intégration d’assets 3D dans le projet.",
     ],
-    itchUrl: "https://jimmy-lambourion.itch.io/alien-puzzle",
-    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
+    buildStatus: "Les versions navigateur et les téléchargements sont en préparation.",
   },
   {
     number: "03",
@@ -103,8 +101,7 @@ const projects: Project[] = [
       "Travail autour d’un système d’inventaire.",
       "Intégration d’assets et de textures.",
     ],
-    itchUrl: "https://thierry-lam.itch.io/planet-prospector",
-    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
+    buildStatus: "Les versions navigateur et les téléchargements sont en préparation.",
   },
   {
     number: "04",
@@ -142,8 +139,7 @@ const projects: Project[] = [
       "La présentation du projet sera complétée à partir des informations confirmées sur le jeu.",
       "Les détails de gameplay et les contributions techniques seront ajoutés après validation.",
     ],
-    itchUrl: "https://thierry-lam.itch.io/sorcerers-ring",
-    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
+    buildStatus: "Les versions navigateur et les téléchargements sont en préparation.",
   },
 ];
 
@@ -359,6 +355,9 @@ function App() {
   // Détection des pages de détail des projets.
   const currentProject = projects.find(
     (project) => path === `/projets/${project.slug}`
+  );
+  const currentGame = projects.find(
+    (project) => project.category === "Jeu vidéo" && path === `/jouer/${project.slug}`
   );
 
   const Footer = (
@@ -628,6 +627,42 @@ function App() {
         </div>
       </main>
     );
+  } else if (currentGame) {
+    content = (
+      <main className="page-main section-wrap game-player-page">
+        <a className="back-link" href={`/Portfolio/projets/${currentGame.slug}`}>
+          <ArrowRight size={15} /> Retour à la présentation
+        </a>
+        <div className="page-intro game-player-intro">
+          <span className="section-kicker">ZONE DE JEU · {currentGame.category.toUpperCase()}</span>
+          <h1>Jouer à <span className="gradient-text">{currentGame.title}</span></h1>
+          <p>Cette page accueillera la version jouable hébergée directement sur le portfolio.</p>
+        </div>
+        {currentGame.browserBuildPath ? (
+          <section className="game-frame-wrap" aria-label={`Jeu ${currentGame.title}`}>
+            <iframe
+              className="game-frame"
+              src={currentGame.browserBuildPath}
+              title={`Jouer à ${currentGame.title}`}
+              allow="fullscreen; gamepad"
+              allowFullScreen
+            />
+          </section>
+        ) : (
+          <section className="game-player-placeholder" aria-live="polite">
+            <Gamepad2 size={42} aria-hidden="true" />
+            <h2>Version navigateur en préparation</h2>
+            <p>Le jeu apparaîtra ici dès que son export web sera prêt et intégré au portfolio.</p>
+          </section>
+        )}
+        <div className="game-player-footer">
+          <a className="button button-outline" href={`/Portfolio/projets/${currentGame.slug}`}>
+            Détails du projet <ArrowUpRight size={15} />
+          </a>
+          <a className="text-link" href="/Portfolio/projets">Tous les projets <ArrowRight size={15} /></a>
+        </div>
+      </main>
+    );
   } else if (currentProject) {
     const titleWords = currentProject.title.split(" ");
 
@@ -659,45 +694,29 @@ function App() {
               ))}
             </div>
 
-            <div className="game-action-list" aria-label="Liens et versions du jeu">
-              {currentProject.browserUrl ? (
-                <a className="button button-primary" href={currentProject.browserUrl} target="_blank" rel="noreferrer">
-                  <Gamepad2 size={17} /> Jouer dans le navigateur <ExternalLink size={13} />
+            {currentProject.category === "Jeu vidéo" && (
+              <div className="game-action-list" aria-label="Jouer et télécharger le jeu">
+                <a className="button button-primary" href={`/Portfolio/jouer/${currentProject.slug}`}>
+                  <Gamepad2 size={17} /> Jouer dans le navigateur <ArrowUpRight size={13} />
                 </a>
-              ) : (
-                <span className="game-action-disabled" aria-disabled="true">
-                  <Gamepad2 size={17} /> Version navigateur en préparation
-                </span>
-              )}
+                {currentProject.windowsUrl ? (
+                  <a className="button button-outline" href={currentProject.windowsUrl} download>
+                    Télécharger pour Windows <ArrowDownRight size={16} />
+                  </a>
+                ) : (
+                  <span className="game-action-disabled" aria-disabled="true">Windows : téléchargement en préparation</span>
+                )}
+                {currentProject.macosUrl ? (
+                  <a className="button button-outline" href={currentProject.macosUrl} download>
+                    Télécharger pour macOS <ArrowDownRight size={16} />
+                  </a>
+                ) : (
+                  <span className="game-action-disabled" aria-disabled="true">macOS : téléchargement en préparation</span>
+                )}
+              </div>
+            )}
 
-              {currentProject.windowsUrl ? (
-                <a className="button button-outline" href={currentProject.windowsUrl}>
-                  Télécharger pour Windows <ArrowDownRight size={16} />
-                </a>
-              ) : (
-                <span className="game-action-disabled" aria-disabled="true">
-                  Windows : build en préparation
-                </span>
-              )}
-
-              {currentProject.macosUrl ? (
-                <a className="button button-outline" href={currentProject.macosUrl}>
-                  Télécharger pour macOS <ArrowDownRight size={16} />
-                </a>
-              ) : (
-                <span className="game-action-disabled" aria-disabled="true">
-                  macOS : build en préparation
-                </span>
-              )}
-
-              {currentProject.itchUrl && (
-                <a className="button button-outline" href={currentProject.itchUrl} target="_blank" rel="noreferrer">
-                  Voir la page itch.io <ExternalLink size={13} />
-                </a>
-              )}
-            </div>
-
-            {currentProject.buildStatus && (
+            {currentProject.category === "Jeu vidéo" && currentProject.buildStatus && (
               <p className="game-build-status">
                 <span className="status-dot" />
                 {currentProject.buildStatus}

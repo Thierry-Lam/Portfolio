@@ -1172,3 +1172,56 @@ h1, h2, h3,
 .project-visual.project-visual-fallback .project-visual-image {
   display: none;
 }
+
+/* Pages de détail des jeux — actions et états de disponibilité */
+.game-action-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.game-action-disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px dashed var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: not-allowed;
+}
+.game-build-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.game-build-status .status-dot {
+  flex: 0 0 auto;
+  background: var(--orange);
+  box-shadow: 0 0 10px #8da3b044;
+}
+.visual-sorcerers-ring::before {
+  background:
+    radial-gradient(ellipse at 50% 45%, #8e6ab988 0%, transparent 43%),
+    linear-gradient(135deg, #29213b, #10131a 75%);
+}
+@media (max-width: 640px) {
+  .game-action-list {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .game-action-list .button,
+  .game-action-disabled {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

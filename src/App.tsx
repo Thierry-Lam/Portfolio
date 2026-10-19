@@ -453,6 +453,8 @@ function App() {
 
         <div
           className="project-grid horizontal-carousel"
+          role="region"
+          tabIndex={0}
           aria-label="Carrousel horizontal des projets"
         >
           {visibleProjects.length ? (
@@ -551,6 +553,8 @@ function App() {
 
           <div
             className="timeline experience-carousel"
+            role="region"
+            tabIndex={0}
             aria-label="Carrousel horizontal des expériences"
           >
             {experiences.map((experience) => (
@@ -615,7 +619,7 @@ function App() {
               className="button button-outline"
               href="https://github.com/KiryuZero1992"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <Github size={17} /> GitHub <ExternalLink size={13} />
             </a>
@@ -921,6 +925,8 @@ function App() {
 
             <div
               className="timeline formation-carousel"
+              role="region"
+              tabIndex={0}
               aria-label="Carrousel horizontal des formations"
             >
               {formations.map((formation, index) => (

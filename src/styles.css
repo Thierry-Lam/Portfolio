@@ -1227,29 +1227,35 @@ h1, h2, h3,
 }
 
 
-/* Page de lancement locale des jeux */
-.game-player-page { min-width: 0; }
-.game-player-intro { margin-bottom: 24px; }
+/* Page de lancement locale des jeux : zone large et confortable, prioritaire sur la page. */
+.game-player-page {
+  width: min(1600px, calc(100vw - 48px));
+  min-width: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.game-player-intro { margin-bottom: 20px; }
 .game-frame-wrap {
   width: 100%;
-  min-height: 320px;
+  min-height: 420px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
   background: #080b12;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, .22);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .3);
 }
 .game-frame {
   display: block;
   width: 100%;
-  height: min(72vw, 720px);
-  min-height: 320px;
+  height: clamp(560px, 72vh, 900px);
+  min-height: 420px;
   border: 0;
   background: #080b12;
 }
 .game-player-placeholder {
   display: flex;
-  min-height: 320px;
+  min-height: 420px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1257,17 +1263,25 @@ h1, h2, h3,
   padding: clamp(24px, 5vw, 56px);
   text-align: center;
   border: 1px dashed var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
   background: radial-gradient(ellipse at 50% 35%, rgba(65, 199, 218, .09), transparent 55%), #0d111a;
   color: var(--muted);
 }
 .game-player-placeholder h2 { margin: 0; color: var(--text); font-size: clamp(16px, 2vw, 24px); line-height: 1.5; }
 .game-player-placeholder p { max-width: 620px; margin: 0; line-height: 1.8; }
 .game-player-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 20px; }
+@media (max-width: 900px) {
+  .game-player-page { width: calc(100vw - 32px); }
+  .game-frame-wrap { min-height: 360px; }
+  .game-frame { height: clamp(420px, 68vh, 760px); min-height: 360px; }
+  .game-player-placeholder { min-height: 360px; }
+}
 @media (max-width: 620px) {
-  .game-frame-wrap { min-height: 240px; }
-  .game-frame { height: 68vh; min-height: 240px; }
-  .game-player-placeholder { min-height: 260px; }
+  .game-player-page { width: calc(100vw - 20px); }
+  .game-player-intro { margin-bottom: 16px; }
+  .game-frame-wrap { min-height: 300px; border-radius: 8px; }
+  .game-frame { height: clamp(300px, 68svh, 620px); min-height: 300px; }
+  .game-player-placeholder { min-height: 300px; padding: 24px 16px; }
   .game-player-footer { align-items: stretch; flex-direction: column; }
   .game-player-footer .button { justify-content: center; }
 }

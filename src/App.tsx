@@ -634,9 +634,7 @@ function App() {
           <ArrowRight size={15} /> Retour à la présentation
         </a>
         <div className="page-intro game-player-intro">
-          <span className="section-kicker">ZONE DE JEU · {currentGame.category.toUpperCase()}</span>
-          <h1>Jouer à <span className="gradient-text">{currentGame.title}</span></h1>
-          <p>Cette page accueillera la version jouable hébergée directement sur le portfolio.</p>
+          <h1><span className="gradient-text">{currentGame.title}</span></h1>
         </div>
         {currentGame.browserBuildPath ? (
           <section className="game-frame-wrap" aria-label={`Jeu ${currentGame.title}`}>
@@ -656,9 +654,6 @@ function App() {
           </section>
         )}
         <div className="game-player-footer">
-          <a className="button button-outline" href={`/Portfolio/projets/${currentGame.slug}`}>
-            Détails du projet <ArrowUpRight size={15} />
-          </a>
           <a className="text-link" href="/Portfolio/projets">Tous les projets <ArrowRight size={15} /></a>
         </div>
       </main>

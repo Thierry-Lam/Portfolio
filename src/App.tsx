@@ -505,6 +505,8 @@ function App() {
 
           <div
             className="timeline formation-carousel"
+            role="region"
+            tabIndex={0}
             aria-label="Carrousel horizontal des formations"
           >
             {formations.map((formation, index) => (

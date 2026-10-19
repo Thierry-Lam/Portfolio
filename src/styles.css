@@ -1141,13 +1141,7 @@ h1, h2, h3,
 
 
 /* Images personnalisables des cartes et pages projet */
-.project-visual-image { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-visual .project-number, .project-visual .visual-caption { z-index: 2; }
-.project-visual-image:not([src]) { display: none; }
-
-
-/* Les visuels de projets sont désormais les images fournies dans public/projects.
-   On retire les anciennes formes décoratives 3D qui passaient devant les images. */
+/* Visuels des cartes et pages projet. */
 .project-visual::before { content: none !important; }
 .project-visual .visual-orb,
 .project-visual .visual-shape,
@@ -1156,6 +1150,7 @@ h1, h2, h3,
 .project-visual-image { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; }
 .project-visual .project-number,
 .project-visual .visual-caption { z-index: 2; }
+.project-visual-image:not([src]) { display: none; }
 /* B01 — Visuel de secours si l’image du projet ne charge pas */
 .project-visual.project-visual-fallback::before {
   content: "" !important;

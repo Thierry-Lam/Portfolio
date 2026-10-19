@@ -691,7 +691,7 @@ function App() {
 
             {currentProject.category === "Jeu vidéo" && (
               <div className="game-action-list" aria-label="Jouer et télécharger le jeu">
-                <a className="button button-primary" href={`/Portfolio/jouer/${currentProject.slug}`}>
+                <a className="button button-primary browser-play-button" href={`/Portfolio/jouer/${currentProject.slug}`}>
                   <Gamepad2 size={17} /> Jouer dans le navigateur <ArrowUpRight size={13} />
                 </a>
                 {currentProject.windowsUrl ? (

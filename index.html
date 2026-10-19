@@ -11,6 +11,17 @@
     <meta property="og:description" content="Découvrez les projets, compétences et créations interactives de Thierry Lam." />
     <meta name="twitter:card" content="summary" />
     <title>Thierry Lam — Développeur Web Full Stack</title>
+    <script>
+      // Restaure le chemin transmis par public/404.html avant le démarrage de React.
+      const params = new URLSearchParams(window.location.search);
+      const requestedPath = params.get("p");
+      if (requestedPath && requestedPath.startsWith("/Portfolio/")) {
+        const restoredUrl = new URL(requestedPath, window.location.origin);
+        if (restoredUrl.origin === window.location.origin) {
+          window.history.replaceState(null, "", restoredUrl.pathname + restoredUrl.search + restoredUrl.hash);
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet" />

@@ -70,7 +70,7 @@ const projects: Project[] = [
     category: "Jeu vidéo",
     year: "2020",
     description:
-      "Jeu de puzzle développé avec Unity et C#, avec des mécaniques de gameplay, des interactions et une intégration d’assets 3D.",
+      "Jeu de puzzle en 3D à la troisième personne : incarnez un extraterrestre capable de se transformer et d’utiliser ses pouvoirs de couleur pour résoudre des énigmes et vous échapper d’un laboratoire.",
     technologies: ["Unity", "C#", "Gameplay", "UI"],
     visual: "visual-puzzle",
     image: "/Portfolio/projects/alien-puzzle.jpg",
@@ -90,7 +90,7 @@ const projects: Project[] = [
     category: "Jeu vidéo",
     year: "2018",
     description:
-      "Projet de jeu de survie avec un système d’inventaire et une intégration d’assets et de textures.",
+      "Jeu de survie dans lequel vous incarnez un explorateur spatial sur une planète inconnue. Gérez votre faim, votre soif et votre oxygène tout en explorant un environnement riche en ressources.",
     technologies: ["Unity", "C#", "Système d’inventaire"],
     visual: "visual-planet",
     image: "/Portfolio/projects/planet-prospector.jpg",
@@ -129,15 +129,15 @@ const projects: Project[] = [
     category: "Jeu vidéo",
     year: "À préciser",
     description:
-      "Projet de jeu vidéo. Cette page sera complétée avec sa présentation détaillée, les éléments de gameplay et les informations techniques confirmées.",
+      "Jeu de puzzle où vous incarnez un jeune explorateur de donjon. Résolvez des énigmes, actionnez des leviers et ouvrez des portes pour progresser à travers les différents étages.",
     technologies: ["À préciser"],
     visual: "visual-sorcerers-ring",
     image: "/Portfolio/projects/sorcerers-ring.jpg",
     visualLabel: "Visuel de Sorcerer's Ring",
     role: "À préciser",
     details: [
-      "La présentation du projet sera complétée à partir des informations confirmées sur le jeu.",
-      "Les détails de gameplay et les contributions techniques seront ajoutés après validation.",
+      "Exploration d’un donjon à travers une succession d’énigmes et d’interactions avec l’environnement.",
+      "Commandes au clavier et à la souris, avec prise en charge d’une manette PlayStation 4 selon la fiche du projet.",
     ],
     buildStatus: "Les versions navigateur et les téléchargements sont en préparation.",
   },

@@ -36,6 +36,11 @@ type Project = {
   visualLabel: string;
   role: string;
   details: string[];
+  itchUrl?: string;
+  browserUrl?: string;
+  windowsUrl?: string;
+  macosUrl?: string;
+  buildStatus?: string;
 };
 
 const projects: Project[] = [
@@ -77,6 +82,8 @@ const projects: Project[] = [
       "Utilisation de Unity et C#.",
       "Intégration d’assets 3D dans le projet.",
     ],
+    itchUrl: "https://jimmy-lambourion.itch.io/alien-puzzle",
+    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
   },
   {
     number: "03",
@@ -96,6 +103,8 @@ const projects: Project[] = [
       "Travail autour d’un système d’inventaire.",
       "Intégration d’assets et de textures.",
     ],
+    itchUrl: "https://thierry-lam.itch.io/planet-prospector",
+    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
   },
   {
     number: "04",
@@ -115,6 +124,26 @@ const projects: Project[] = [
       "Travail sur le comportement des ennemis.",
       "Création ou intégration d’un menu de jeu.",
     ],
+  },
+  {
+    number: "05",
+    slug: "sorcerers-ring",
+    title: "Sorcerer's Ring",
+    category: "Jeu vidéo",
+    year: "À préciser",
+    description:
+      "Projet de jeu vidéo. Cette page sera complétée avec sa présentation détaillée, les éléments de gameplay et les informations techniques confirmées.",
+    technologies: ["À préciser"],
+    visual: "visual-sorcerers-ring",
+    image: "/Portfolio/projects/sorcerers-ring.jpg",
+    visualLabel: "Visuel de Sorcerer's Ring",
+    role: "À préciser",
+    details: [
+      "La présentation du projet sera complétée à partir des informations confirmées sur le jeu.",
+      "Les détails de gameplay et les contributions techniques seront ajoutés après validation.",
+    ],
+    itchUrl: "https://thierry-lam.itch.io/sorcerers-ring",
+    buildStatus: "Les versions jouables et téléchargeables sont en préparation.",
   },
 ];
 
@@ -629,6 +658,51 @@ function App() {
                 <span key={technology}>{technology}</span>
               ))}
             </div>
+
+            <div className="game-action-list" aria-label="Liens et versions du jeu">
+              {currentProject.browserUrl ? (
+                <a className="button button-primary" href={currentProject.browserUrl} target="_blank" rel="noreferrer">
+                  <Gamepad2 size={17} /> Jouer dans le navigateur <ExternalLink size={13} />
+                </a>
+              ) : (
+                <span className="game-action-disabled" aria-disabled="true">
+                  <Gamepad2 size={17} /> Version navigateur en préparation
+                </span>
+              )}
+
+              {currentProject.windowsUrl ? (
+                <a className="button button-outline" href={currentProject.windowsUrl}>
+                  Télécharger pour Windows <ArrowDownRight size={16} />
+                </a>
+              ) : (
+                <span className="game-action-disabled" aria-disabled="true">
+                  Windows : build en préparation
+                </span>
+              )}
+
+              {currentProject.macosUrl ? (
+                <a className="button button-outline" href={currentProject.macosUrl}>
+                  Télécharger pour macOS <ArrowDownRight size={16} />
+                </a>
+              ) : (
+                <span className="game-action-disabled" aria-disabled="true">
+                  macOS : build en préparation
+                </span>
+              )}
+
+              {currentProject.itchUrl && (
+                <a className="button button-outline" href={currentProject.itchUrl} target="_blank" rel="noreferrer">
+                  Voir la page itch.io <ExternalLink size={13} />
+                </a>
+              )}
+            </div>
+
+            {currentProject.buildStatus && (
+              <p className="game-build-status">
+                <span className="status-dot" />
+                {currentProject.buildStatus}
+              </p>
+            )}
           </div>
 
           <ProjectVisual project={currentProject} />
@@ -661,8 +735,8 @@ function App() {
             </div>
 
             <p className="content-note">
-              Les captures, liens de démonstration et détails techniques
-              pourront être ajoutés ici.
+              Les captures supplémentaires, les informations techniques validées
+              et les détails de développement seront ajoutés progressivement.
             </p>
           </aside>
         </div>

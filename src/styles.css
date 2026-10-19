@@ -1213,6 +1213,13 @@ h1, h2, h3,
     radial-gradient(ellipse at 50% 45%, #8e6ab988 0%, transparent 43%),
     linear-gradient(135deg, #29213b, #10131a 75%);
 }
+/* Le lancement navigateur est réservé aux écrans non mobiles. */
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+  .browser-play-button {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .game-action-list {
     align-items: stretch;

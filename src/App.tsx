@@ -630,9 +630,6 @@ function App() {
   } else if (currentGame) {
     content = (
       <main className="page-main section-wrap game-player-page">
-        <a className="back-link" href={`/Portfolio/projets/${currentGame.slug}`}>
-          <ArrowRight size={15} /> Retour à la présentation
-        </a>
         <div className="page-intro game-player-intro">
           <h1><span className="gradient-text">{currentGame.title}</span></h1>
         </div>
@@ -654,6 +651,9 @@ function App() {
           </section>
         )}
         <div className="game-player-footer">
+          <a className="text-link" href={`/Portfolio/projets/${currentGame.slug}`}>
+            <ArrowRight size={15} /> Retour à la présentation du projet
+          </a>
           <a className="text-link" href="/Portfolio/projets">Tous les projets <ArrowRight size={15} /></a>
         </div>
       </main>

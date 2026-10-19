@@ -1140,7 +1140,6 @@ h1, h2, h3,
 }
 
 
-/* Images personnalisables des cartes et pages projet */
 /* Visuels des cartes et pages projet. */
 .project-visual::before { content: none !important; }
 .project-visual .visual-orb,

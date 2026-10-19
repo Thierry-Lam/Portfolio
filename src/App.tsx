@@ -296,6 +296,8 @@ function ProjectVisual({ project }: { project: Project }) {
         className="project-visual-image"
         src={project.image}
         alt={project.visualLabel}
+        loading="lazy"
+        decoding="async"
         onError={() => setImageFailed(true)}
         onLoad={() => setImageFailed(false)}
       />
@@ -410,7 +412,7 @@ function App() {
     );
 
     content = (
-      <main className="page-main section-wrap">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap">
         <div className="page-intro">
           <span className="section-kicker">
             GALERIE · PROJETS PERSONNELS
@@ -426,7 +428,7 @@ function App() {
           </p>
         </div>
 
-        <div className="filter-bar">
+        <div className="filter-bar" role="group" aria-label="Filtrer les projets par catégorie">
           <Filter size={16} />
 
           {categories.map((category) => (
@@ -444,6 +446,10 @@ function App() {
             </button>
           ))}
         </div>
+
+        <p className="sr-only" aria-live="polite" aria-atomic="true">
+          {visibleProjects.length} projet{visibleProjects.length > 1 ? "s" : ""} affiché{visibleProjects.length > 1 ? "s" : ""}.
+        </p>
 
         <div
           className="project-grid horizontal-carousel"
@@ -473,7 +479,7 @@ function App() {
     );
   } else if (path === "/formations") {
     content = (
-      <main className="page-main section-wrap">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap">
         <div className="page-intro">
           <span className="section-kicker">
             PARCOURS & APPRENTISSAGE
@@ -518,7 +524,7 @@ function App() {
     );
   } else if (path === "/experiences") {
     content = (
-      <main className="page-main section-wrap">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap">
         <div className="page-intro">
           <span className="section-kicker">
             EXPÉRIENCES · MISSIONS & SAVOIR-FAIRE
@@ -579,7 +585,7 @@ function App() {
     );
   } else if (path === "/contact") {
     content = (
-      <main className="page-main section-wrap">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap">
         <div className="contact-panel contact-page-panel">
           <div className="contact-orb" />
 
@@ -629,7 +635,7 @@ function App() {
     );
   } else if (currentGame) {
     content = (
-      <main className="page-main section-wrap game-player-page">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap game-player-page">
         <div className="page-intro game-player-intro">
           <h1><span className="gradient-text">{currentGame.title}</span></h1>
         </div>
@@ -662,7 +668,7 @@ function App() {
     const titleWords = currentProject.title.split(" ");
 
     content = (
-      <main className="page-main section-wrap project-detail">
+      <main id="contenu-principal" tabIndex={-1} className="page-main section-wrap project-detail">
         <a className="back-link" href="/Portfolio/projets">
           <ArrowRight size={15} /> Tous les projets
         </a>
@@ -773,7 +779,7 @@ function App() {
     );
   } else {
     content = (
-      <main>
+      <main id="contenu-principal" tabIndex={-1}>
         <section className="hero section-wrap" id="accueil">
           <div className="hero-copy">
             <div className="eyebrow">
@@ -948,6 +954,7 @@ function App() {
 
   return (
     <>
+      <a className="skip-link" href="#contenu-principal">Aller au contenu principal</a>
       <div className="site-shell">
         <a
           className="arcade-marquee"

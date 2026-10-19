@@ -1,17 +1,13 @@
-VISUELS DES PROJETS — À REMPLACER
+VISUELS DES PROJETS — ÉTAT DES FICHIERS
 
-Dépose tes propres captures d’écran dans ce dossier en conservant exactement ces noms :
+Les cartes et pages projet recherchent les images suivantes dans ce dossier :
 
-- memories-of-yesteryears.jpg
-- alien-puzzle.jpg
-- planet-prospector.jpg
-- docus.jpg
+- memories-of-yesteryears.jpg — portfolio
+- alien-puzzle.jpg — Alien Puzzle
+- planet-prospector.jpg — Planet Prospector
+- docus.jpg — Docus (fichier à ajouter si une capture validée est disponible)
+- sorcerers-ring.jpg — Sorcerer's Ring (fichier à ajouter si une capture validée est disponible)
 
-Formats conseillés : JPG, PNG ou WebP. Pour un rendu homogène, privilégie le paysage 16:9 (ex. 1280 × 720 px).
+État vérifié dans le dépôt : seuls memories-of-yesteryears.jpg, alien-puzzle.jpg et planet-prospector.jpg sont actuellement présents. Les deux autres images ne doivent pas être considérées comme disponibles. Le composant affiche un visuel de secours si une image manque.
 
-IMPORTANT :
-- Si tu utilises un autre format ou nom de fichier, modifie aussi la propriété `image` du projet correspondant dans `src/App.tsx`.
-- Les images sont utilisées sur la page de liste des projets et dans les pages détaillées.
-- Tant que les fichiers ne sont pas ajoutés, les visuels CSS actuels restent visibles.
-
-Pour remplacer une image, supprime simplement le fichier existant et mets la nouvelle image avec le même nom.
+Pour ajouter une capture, dépose le fichier dans ce dossier en conservant le nom indiqué et vérifie les droits d’utilisation. Privilégie une image paysage 16:9 (par exemple 1280 × 720 px), optimisée pour le web. Si le nom ou le format change, mets à jour la propriété image du projet dans src/App.tsx.

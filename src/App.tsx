@@ -628,7 +628,7 @@ function App() {
               className="button button-outline"
               href="https://www.linkedin.com/in/thierry-lam-018306155/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <Linkedin size={17} /> LinkedIn{" "}
               <ExternalLink size={13} />

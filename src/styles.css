@@ -1227,13 +1227,12 @@ h1, h2, h3,
 }
 
 
-/* Page de lancement locale des jeux : zone large et confortable, prioritaire sur la page. */
+/* Page de lancement locale des jeux : zone large, centrée dans le flux normal. */
 .game-player-page {
-  width: min(1600px, calc(100vw - 48px));
+  width: min(1600px, calc(100% - 48px));
+  max-width: 100%;
   min-width: 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-inline: auto;
 }
 .game-player-intro { margin-bottom: 20px; }
 .game-frame-wrap {

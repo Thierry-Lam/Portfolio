@@ -33,7 +33,7 @@ type LegalPageProps = {
 
 function LegalPage({ title, eyebrow, intro, children }: LegalPageProps) {
   return (
-    <main className="legal-page section-wrap">
+    <main id="contenu-principal" tabIndex={-1} className="legal-page section-wrap">
       <header className="legal-page__header">
         <span className="section-kicker">{eyebrow}</span>
         <h1>{title}</h1>

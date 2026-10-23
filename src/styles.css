@@ -1362,11 +1362,13 @@ body {
 }
 
 .site-shell > .arcade-marquee {
+  order: 0;
   flex: 0 0 auto;
   margin-top: 0;
 }
 
 .site-shell > .arcade-screen-content {
+  order: 1;
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
@@ -1385,13 +1387,14 @@ body {
 }
 
 .site-shell > .arcade-controls {
-  order: initial;
+  order: 2;
   flex: 0 0 auto;
   width: calc(100% + clamp(16px, 3vw, 40px));
   margin-inline: calc(clamp(8px, 1.5vw, 20px) * -1);
 }
 
 .site-shell > .site-footer {
+  order: 3;
   flex: 0 0 auto;
   width: 100%;
   max-width: none;
@@ -1422,6 +1425,7 @@ body {
 }
 
 .site-shell::after {
+  order: 4;
   flex: 0 0 6px;
   height: 6px;
   margin-inline: calc(clamp(8px, 1.5vw, 20px) * -1);

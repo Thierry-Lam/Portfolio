@@ -978,7 +978,9 @@ function App() {
           </span>
         </a>
 
-        {content}
+        <div className="arcade-screen-content">
+          {content}
+        </div>
 
         <div
           className="arcade-controls"
@@ -1035,9 +1037,9 @@ function App() {
             </a>
           </nav>
         </div>
-      </div>
 
-      {Footer}
+        {Footer}
+      </div>
     </>
   );
 }

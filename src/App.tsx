@@ -27,7 +27,7 @@ type Project = {
   number: string;
   slug: string;
   title: string;
-  category: "Web" | "Jeu vidéo" | "Modélisation 3D";
+  category: "Web" | "Jeu vidéo" | "IA";
   year: string;
   description: string;
   technologies: string[];
@@ -140,6 +140,25 @@ const projects: Project[] = [
       "Commandes au clavier et à la souris, avec prise en charge d’une manette PlayStation 4 selon la fiche du projet.",
     ],
     buildStatus: "Les versions navigateur et les téléchargements sont en préparation.",
+  },
+  {
+    number: "06",
+    slug: "agence-ia",
+    title: "Agence IA",
+    category: "IA",
+    year: "À préciser",
+    description:
+      "Conception d’une agence reposant sur plusieurs agents IA, avec un dashboard interactif pour centraliser et visualiser son fonctionnement. Le projet a été développé avec l’aide de Claude Code.",
+    technologies: ["Claude Code", "Agents IA", "Dashboard interactif"],
+    visual: "visual-ai-agency",
+    image: "/Portfolio/projects/agence-ia.jpg",
+    visualLabel: "Visuel de présentation du projet Agence IA",
+    role: "Conception et développement assistés par Claude Code",
+    details: [
+      "Conception d’une agence IA composée de plusieurs agents spécialisés.",
+      "Création d’un dashboard interactif pour présenter et piloter l’agence.",
+      "Utilisation de Claude Code pour accompagner la conception et le développement du projet.",
+    ],
   },
 ];
 
@@ -403,7 +422,7 @@ function App() {
       "Tous",
       "Web",
       "Jeu vidéo",
-      "Modélisation 3D",
+      "IA",
     ];
 
     const visibleProjects = projects.filter(
@@ -464,10 +483,10 @@ function App() {
           ) : (
             <div className="empty-category">
               <Box size={28} />
-              <h3>Les projets 3D arrivent bientôt</h3>
+              <h3>Aucun projet dans cette catégorie</h3>
               <p>
-                Cette catégorie est prête à accueillir tes créations
-                de modélisation.
+                Les nouveaux projets de cette catégorie apparaîtront ici
+                lorsqu’ils seront ajoutés au portfolio.
               </p>
             </div>
           )}

@@ -1469,3 +1469,14 @@ body {
     margin-inline: -8px;
   }
 }
+
+
+/* Projet IA — visuel de secours inspiré d'un dashboard multi-agents */
+.project-visual.visual-ai-agency.project-visual-fallback::before {
+  background:
+    linear-gradient(rgba(89, 243, 255, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 243, 255, .09) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 45%, rgba(255, 79, 216, .3), transparent 55%),
+    linear-gradient(135deg, #17253d, #090d18 78%) !important;
+  background-size: 22px 22px, 22px 22px, auto, auto !important;
+}
